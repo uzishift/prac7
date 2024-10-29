@@ -251,7 +251,12 @@ namespace prac7
             Triad1First.Text = _vector1.First.ToString();
             Triad1Second.Text = _vector1.Second.ToString();
             Triad1Third.Text = _vector1.Third.ToString();
-        }
+        } 
+        /// <summary>
+        /// Кнопка сложения векторов.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddVectors_Click(object sender, RoutedEventArgs e)
         {
             if (UpdateTriads())
@@ -261,7 +266,11 @@ namespace prac7
             }
             UpdateTextBoxesForTriad1();
         }
-
+        /// <summary>
+        /// Кнопка нахождения скалярного произведения.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDotProduct_Click(object sender, RoutedEventArgs e)
         {
             if (UpdateTriads())
