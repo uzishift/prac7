@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:prac7"
         mc:Ignorable="d"
-        Title="MainWindow" Height="328" Width="400" ResizeMode="CanMinimize" Icon="/table.png">
+        Title="prac7" Height="328" Width="400" ResizeMode="CanMinimize" Icon="/table.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24*"/>
