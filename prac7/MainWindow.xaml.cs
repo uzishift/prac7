@@ -26,6 +26,14 @@ namespace prac7
         /// Объявление Триады 2.
         /// </summary>
         private Triad _triad2;
+        /// <summary>
+        /// Объявление Вектора 1.
+        /// </summary>
+        private Vector3D _vector1;
+        /// <summary>
+        /// Объявление Вектора 2.
+        /// </summary>
+        private Vector3D _vector2;
 
         /// <summary>
         /// Конструктор MainWindow.
@@ -35,6 +43,8 @@ namespace prac7
             InitializeComponent();
             _triad1 = new Triad(0, 0, 0);
             _triad2 = new Triad(0, 0, 0);
+            _vector1 = new Vector3D(0, 0, 0);
+            _vector2 = new Vector3D(0, 0, 0);
             InitializeTextBoxes();
         }
 
@@ -50,6 +60,14 @@ namespace prac7
             Triad2First.Text = _triad2.First.ToString();
             Triad2Second.Text = _triad2.Second.ToString();
             Triad2Third.Text = _triad2.Third.ToString();
+
+            Triad1First.Text = _vector1.First.ToString();
+            Triad1Second.Text = _vector1.Second.ToString();
+            Triad1Third.Text = _vector1.Third.ToString();
+
+            Triad2First.Text = _vector2.First.ToString();
+            Triad2Second.Text = _vector2.Second.ToString();
+            Triad2Third.Text = _vector2.Third.ToString();
         }
 
         /// <summary>
@@ -155,6 +173,14 @@ namespace prac7
             isValid &= int.TryParse(Triad2Second.Text, out int triad2Second);
             isValid &= int.TryParse(Triad2Third.Text, out int triad2Third);
 
+            isValid &= int.TryParse(Triad1First.Text, out int vector1First);
+            isValid &= int.TryParse(Triad1Second.Text, out int vector1Second);
+            isValid &= int.TryParse(Triad1Third.Text, out int vector1Third);
+
+            isValid &= int.TryParse(Triad2First.Text, out int vector2First);
+            isValid &= int.TryParse(Triad2Second.Text, out int vector2Second);
+            isValid &= int.TryParse(Triad2Third.Text, out int vector2Third);
+
             if (!isValid)
             {
                 MessageBox.Show("Введите корректные числа для обеих триад.", "Ошибка ввода");
@@ -168,6 +194,14 @@ namespace prac7
             _triad2.First = triad2First;
             _triad2.Second = triad2Second;
             _triad2.Third = triad2Third;
+
+            _vector1.First = vector1First;
+            _vector1.Second = vector1Second;
+            _vector1.Third = vector1Third;
+
+            _vector2.First = vector2First;
+            _vector2.Second = vector2Second;
+            _vector2.Third = vector2Third;
 
             return true;
         }
@@ -184,6 +218,10 @@ namespace prac7
             isValid &= int.TryParse(Triad1Second.Text, out int triad1Second);
             isValid &= int.TryParse(Triad1Third.Text, out int triad1Third);
 
+            isValid &= int.TryParse(Triad1First.Text, out int vector1First);
+            isValid &= int.TryParse(Triad1Second.Text, out int vector1Second);
+            isValid &= int.TryParse(Triad1Third.Text, out int vector1Third);
+
             if (!isValid)
             {
                 MessageBox.Show("Введите корректные числа для триады.", "Ошибка ввода");
@@ -193,6 +231,10 @@ namespace prac7
             _triad1.First = triad1First;
             _triad1.Second = triad1Second;
             _triad1.Third = triad1Third;
+
+            _vector1.First = vector1First;
+            _vector1.Second = vector1Second;
+            _vector1.Third = vector1Third;
 
             return true;
         }
@@ -205,27 +247,29 @@ namespace prac7
             Triad1First.Text = _triad1.First.ToString();
             Triad1Second.Text = _triad1.Second.ToString();
             Triad1Third.Text = _triad1.Third.ToString();
+
+            Triad1First.Text = _vector1.First.ToString();
+            Triad1Second.Text = _vector1.Second.ToString();
+            Triad1Third.Text = _vector1.Third.ToString();
         }
         private void btnAddVectors_Click(object sender, RoutedEventArgs e)
         {
             if (UpdateTriads())
             {
-                Vector3D vector1 = new Vector3D(_triad1.First, _triad1.Second, _triad1.Third);
-                Vector3D vector2 = new Vector3D(_triad2.First, _triad2.Second, _triad2.Third);
-                Vector3D result = vector1 + vector2;
-                tbOutput.Text = $"Сложение векторов:\n{result}";
+                _vector1 = _vector1 + _vector2;
+                tbOutput.Text = $"Сложение векторов:\n{_vector1}";
             }
+            UpdateTextBoxesForTriad1();
         }
 
         private void btnDotProduct_Click(object sender, RoutedEventArgs e)
         {
             if (UpdateTriads())
             {
-                Vector3D vector1 = new Vector3D(_triad1.First, _triad1.Second, _triad1.Third);
-                Vector3D vector2 = new Vector3D(_triad2.First, _triad2.Second, _triad2.Third);
-                int dotProduct = vector1.DotProduct(vector2);
+                int dotProduct = _vector1.DotProduct(_vector2);
                 tbOutput.Text = $"Скалярное произведение векторов: {dotProduct}";
             }
+            UpdateTextBoxesForTriad1();
         }
     }
 }

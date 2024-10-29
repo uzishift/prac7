@@ -22,12 +22,12 @@ namespace prac7
         /// <summary>
         /// Перегрузка оператора сложения векторов.
         /// </summary>
-        /// <param name="v1">Первый вектор.</param>
-        /// <param name="v2">Второй вектор.</param>
+        /// <param name="vector1">Первый вектор.</param>
+        /// <param name="vector2">Второй вектор.</param>
         /// <returns>Результат сложения двух векторов.</returns>
-        public static Vector3D operator +(Vector3D v1, Vector3D v2)
+        public static Vector3D operator +(Vector3D vector1, Vector3D vector2)
         {
-            return new Vector3D(v1.First + v2.First, v1.Second + v2.Second, v1.Third + v2.Third);
+            return new Vector3D(vector1.First + vector2.First, vector1.Second + vector2.Second, vector1.Third + vector2.Third);
         }
 
         /// <summary>
